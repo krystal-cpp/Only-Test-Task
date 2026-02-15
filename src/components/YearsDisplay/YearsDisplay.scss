@@ -5,9 +5,13 @@
     display: flex;
     gap: 100px;
     position: relative;
-    z-index: 1;
+    z-index: 0;
     pointer-events: none;
     user-select: none;
+
+    @include desktop {
+        gap: 60px;
+    }
 
     @include tablet {
         gap: 30px;
@@ -22,9 +26,12 @@
         letter-spacing: -4px;
         font-family: $font-primary;
 
+        @include desktop {
+            font-size: 150px;
+        }
+
         @include tablet {
             font-size: 56px;
-            letter-spacing: -1px;
         }
     }
 

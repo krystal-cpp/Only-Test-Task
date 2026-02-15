@@ -5,6 +5,7 @@
     position: absolute;
     width: $circle-diameter;
     height: $circle-diameter;
+    z-index: 2;
 
     @include tablet {
         display: none;
@@ -27,7 +28,6 @@
         transform: translate(-50%, -50%);
         cursor: pointer;
         transition: width 0.3s, height 0.3s, background-color 0.3s;
-        z-index: 2;
         @include flex-center;
 
         &:hover,

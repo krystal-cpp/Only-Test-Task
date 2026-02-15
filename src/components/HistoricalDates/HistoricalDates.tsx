@@ -46,9 +46,7 @@ export const HistoricalDates: React.FC<HistoricalDatesProps> = ({ periods, title
             <div className='historical-dates__horizontal-line'/>
 
             <div className='historical-dates__container'>
-                <h2 className='historical-dates__title'>
-                    <span className='historical-dates__title-gradient'>{title}</span>
-                </h2>
+                <h2 className='historical-dates__title'>{title}</h2>
 
                 <div className='historical-dates__main'>
                     <CircleNavigation
@@ -62,22 +60,40 @@ export const HistoricalDates: React.FC<HistoricalDatesProps> = ({ periods, title
                     onComplete={handleAnimationComplete}/>
                 </div>
 
+                <div className='historical-dates__mobile-category'>
+                    {activePeriod.label}
+                </div>
+
+                <div className='historical-dates__mobile-divider'/>
+
                 <div className='historical-dates__bottom'>
-                    <NavigationControls
-                    currentIndex={activeIndex}
-                    total={periods.length}
-                    onPrev={handlePrev}
-                    onNext={handleNext}
-                    disabled={isAnimating}/>
+                    <div className='historical-dates__nav'>
+                        <NavigationControls
+                        currentIndex={activeIndex}
+                        total={periods.length}
+                        onPrev={handlePrev}
+                        onNext={handleNext}
+                        disabled={isAnimating}/>
+                    </div>
 
-                    <MobilePagination
-                    total={periods.length}
-                    activeIndex={activeIndex}
-                    onSelect={handleChange}/>
-
-                    <EventsSlider
-                    events={activePeriod.events}
-                    key={activePeriod.id}/>
+                    <div className='historical-dates__slider'>
+                        <EventsSlider
+                        events={activePeriod.events}
+                        key={activePeriod.id}/>
+                    </div>
+                    
+                    <div className='historical-dates__footer'>
+                        <NavigationControls
+                        currentIndex={activeIndex}
+                        total={periods.length}
+                        onPrev={handlePrev}
+                        onNext={handleNext}
+                        disabled={isAnimating}/>
+                        <MobilePagination
+                        total={periods.length}
+                        activeIndex={activeIndex}
+                        onSelect={handleChange}/>
+                    </div>
                 </div>
             </div>
         </div>

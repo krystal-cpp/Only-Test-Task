@@ -67,7 +67,7 @@ export const CircleNavigation: React.FC<CircleNavigationProps> = ({
                         onMouseLeave={() => setHoveredIndex(null)}
                         >
                             <span className='circle-nav__dot-number'>{index + 1}</span>
-                            {(isActive || isHovered) && (
+                            {(isActive) && (
                                 <span className='circle-nav__dot-label'>{period.label}</span>
                             )}
                         </div>

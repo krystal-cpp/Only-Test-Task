@@ -12,6 +12,10 @@
     border-left: 1px solid rgba($color-primary, 0.2);
     border-right: 1px solid rgba($color-primary, 0.2);
 
+    @include desktop {
+        padding: 170px 40px 80px;
+    }
+
     @include tablet {
         padding: 60px 20px 40px;
         min-height: auto;
@@ -55,21 +59,36 @@
         font-size: 56px;
         font-weight: 700;
         line-height: 1.2;
-        padding-left: 78px;
-        border-left: 5px solid;
-        border-image: linear-gradient(to bottom, $color-gradient-start, $color-gradient-end) 1;
+        color: $color-primary;
+
+        @include desktop {
+            font-size: 48px;
+            padding-left: 50px;
+        }
 
         @include tablet {
             font-size: 20px;
             padding-left: 0;
-            border-left: none;
-            border-image: none;
-            max-width: 100%;
-        }
-    }
+            max-width: 40%;
 
-    &__title-gradient {
-        color: $color-primary;
+            &::before {
+                display: none;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: -80px;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(to bottom, $color-gradient-start, $color-gradient-end);
+
+            @include desktop {
+                left: -40px;
+            }
+        }
     }
 
     &__main {
@@ -78,12 +97,36 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: -60px;
+        margin-top: -90px;
 
         @include tablet {
             height: auto;
-            margin-top: 30px;
+            margin-top: 60px;
             flex-direction: column;
+        }
+    }
+
+    &__mobile-category {
+        display: none;
+        
+        @include tablet {
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            color: $color-primary;
+            margin-top: 50px;
+        };
+    }
+
+    &__mobile-divider {
+        display: none;
+
+        @include tablet {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: rgba($color-primary, 0.2);
+            margin-top: 30px;
         }
     }
 
@@ -92,7 +135,65 @@
         margin-top: 0px;
 
         @include tablet {
-            margin-top: 30px;
+            margin-top: 20px;
+        }
+    }
+
+    &__nav {
+        display: block;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__slider {
+        margin-top: 56px;
+
+        @include tablet {
+            margin-top: 0;
+            min-height: 150px;
+        }
+    }
+
+    &__footer {
+        display: none;
+
+        @include tablet {
+            display: grid;
+            margin-top: 0px;
+            padding-left: 3px;
+            row-gap: 8px;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto auto;
+
+            .nav-controls {
+                display: contents;
+            }
+
+            .nav-controls__counter {
+                grid-row: 1;
+                grid-column: 1 / -1;
+                font-size: 14px;
+                color: $color-primary;
+            }
+
+            .mobile-pagination {
+                grid-row: 2;
+                grid-column: 2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 0;
+                width: 80%;
+            }
+
+            .nav-controls__buttons {
+                grid-row: 2;
+                grid-column: 1;
+                display: flex;
+                gap: 10px;
+            }
         }
     }
 }
