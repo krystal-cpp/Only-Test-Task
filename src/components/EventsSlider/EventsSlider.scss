@@ -1,0 +1,84 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.events-slider {
+    position: relative;
+    margin-top: 56px;
+    padding: 0 40px;
+
+    @include tablet {
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    &__swiper {
+        overflow: hidden;
+    }
+
+    &__card {
+        padding: 0;
+    }
+
+    &__year {
+        font-size: 25px;
+        font-weight: 400;
+        color: $color-years;
+        margin-bottom: 15px;
+        font-family: $font-primary;
+        line-height: 1.2;
+
+        @include tablet {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__description {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $color-primary;
+
+        @include tablet {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background-color: #FFFFFF;
+        box-shadow: 0 0 15px rgba(56, 119, 238, 0.1);
+        cursor: pointer;
+        @include flex-center;
+        transition: box-shadow 0.3s;
+
+        &:hover {
+            box-shadow: 0 0 15px rgba(56, 119, 238, 0.3);
+        }
+
+        &--prev {
+            left: 0;
+        }
+
+        &--next {
+            right: 0;
+        }
+
+        &--disabled {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @include tablet {
+            display: none;
+        }
+    }
+}

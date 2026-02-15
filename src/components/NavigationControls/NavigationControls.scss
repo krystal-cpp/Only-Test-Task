@@ -1,0 +1,60 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.nav-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include tablet {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    &__counter {
+        font-size: 14px;
+        color: $color-primary;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 20px;
+
+        @include tablet {
+            gap: 10px;
+        }
+    }
+
+    &__btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid rgba($color-primary, 0.5);
+        background-color: transparent;
+        color: $color-primary;
+        cursor: pointer;
+        @include flex-center;
+        transition: background-color 0.3s, opacity 0.3s;
+
+        @include tablet {
+            width: 25px;
+            height: 25px;
+
+            svg {
+                width: 6px;
+                height: 8px;
+            }
+        }
+
+        &:hover:not(:disabled) {
+            background-color: #FFFFFF;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+    }
+}

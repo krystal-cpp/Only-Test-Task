@@ -1,0 +1,31 @@
+@import 'variables';
+
+@mixin mobile {
+    @media(max-width: $breakpoint-mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media(max-width: $breakpont-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(max-width: $breakpoint-desktop) {
+        @content;
+    }
+}
+
+@mixin wide {
+    @media(max-width: $breakpoint-wide) {
+        @content;
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
